@@ -47,6 +47,10 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
                     value={editTodo}
                     onChange={(e) => setEditTodo(e.target.value)}
                     className="todos__single--test"
+                    onBlur={(e) => {
+                        handleEdit(e, todo.id)
+                        setEdit(!edit)
+                    }}
                 />
           ) : todo.isDone ? (
             <s className="todos__single--text">{todo.todo}</s>
