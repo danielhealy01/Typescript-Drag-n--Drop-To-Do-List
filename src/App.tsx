@@ -20,10 +20,12 @@ const App: React.FC = () => {
     }
 
     const onDragEnd = (result: DropResult) => {
-        const { source, destination } = result
+        const { destination, source } = result
 
-        if (!destination) return
-
+        if (!destination) {
+            return
+        }
+        
         if (destination.droppableId === source.droppableId &&
             destination.index === source.index) {
             return
