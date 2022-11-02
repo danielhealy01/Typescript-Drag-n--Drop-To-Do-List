@@ -1,7 +1,7 @@
 import { Todo } from '../types'
 import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 import { MdDone } from "react-icons/md"
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Draggable } from "react-beautiful-dnd"
 
 type Props = {

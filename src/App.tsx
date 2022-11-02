@@ -1,7 +1,7 @@
 import './App.css'
 import InputField from './components/InputField'
 import TodoList from './components/TodoList'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Todo } from './types'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 
