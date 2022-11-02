@@ -9,7 +9,13 @@ interface Props {
 
 const InputField = ({ todo, setTodo, handleAdd }: Props) => {
     
-
+    const handleKeyDown = (e: any) => {
+      if (document.activeElement instanceof HTMLElement && e.key === "Enter") {
+        handleAdd(e);
+        document.activeElement.blur();
+      }
+    };
+    
     const inputRef = useRef<HTMLInputElement>(null)
     return (
         <form
@@ -18,7 +24,7 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
                 handleAdd(e)
                 inputRef.current?.blur()
             }}
-
+            onKeyDown={handleKeyDown}
         >
 
             <input
