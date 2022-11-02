@@ -58,12 +58,12 @@ const App: React.FC = () => {
         setTodos(active)
 
 
-     }
+    }
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <div className="App">
-                <span className='heading'>ToDo List</span>
+                <span className='heading'>Definitely Not a ToDo List </span>
             <InputField
             todo={todo}
             setTodo={setTodo}

@@ -54,7 +54,7 @@ const SingleTodo = ({ index, todo, todos, setTodos }: Props) => {
                     ref={inputRef}
                     value={editTodo}
                     onChange={(e) => setEditTodo(e.target.value)}
-                    className="todos__single--test"
+                    className="todos__single--text"
                     onBlur={(e) => {
                         handleEdit(e, todo.id)
                         setEdit(!edit)

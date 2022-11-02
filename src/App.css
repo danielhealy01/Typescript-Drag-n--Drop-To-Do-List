@@ -6,7 +6,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #354e69;
+  background-image: url(../src/Assets/aldebaran-s-qtRF_RxCAo0-unsplash.jpg);
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
   font-family: "Neucha", cursive;
 }
 

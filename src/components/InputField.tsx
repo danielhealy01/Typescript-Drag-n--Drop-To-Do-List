@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import './styles.css'
 
 interface Props {
@@ -7,8 +7,9 @@ interface Props {
     handleAdd: (e: React.FormEvent) => void
 }
 
-
 const InputField = ({ todo, setTodo, handleAdd }: Props) => {
+    
+
     const inputRef = useRef<HTMLInputElement>(null)
     return (
         <form
@@ -17,7 +18,7 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
                 handleAdd(e)
                 inputRef.current?.blur()
             }}
-            
+
         >
 
             <input
