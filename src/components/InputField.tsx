@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import './styles.css'
 
 interface Props {
@@ -20,7 +20,8 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
         >
 
             <input
-                type='input'
+                type='text'
+                value={todo}
                 onChange={
                     (e) => setTodo(e.target.value)
                 }

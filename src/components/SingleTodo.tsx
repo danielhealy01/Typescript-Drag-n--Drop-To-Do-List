@@ -1,15 +1,17 @@
 import { Todo } from '../types'
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { MdDone } from "react-icons/md";
-import { useState, useRef, useEffect } from 'react'
+import { AiFillEdit, AiFillDelete } from "react-icons/ai"
+import { MdDone } from "react-icons/md"
+import React, { useState, useRef, useEffect } from 'react'
+import { Draggable } from "react-beautiful-dnd"
 
 type Props = {
     todo: Todo,
     todos: Todo[],
     setTodos: React.Dispatch<React.SetStateAction<Todo[]>>,
+    index: number,
 }
 
-const SingleTodo = ({ todo, todos, setTodos }: Props) => {
+const SingleTodo = ({ index, todo, todos, setTodos }: Props) => {
     
     const [edit, setEdit] = useState<boolean>(false)
     const [editTodo, setEditTodo] = useState<string>(todo.todo)
@@ -37,9 +39,15 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
     }, [edit]
     )
 
-    return (
-        <form className="todos__single"
+  return (
+    <Draggable draggableId={todo.id.toString()} index={index}>
+      {
+        (provided) => (
+          <form className="todos__single"
             onSubmit={(e) => handleEdit(e, todo.id)}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+            ref={provided.innerRef}
         >
             {edit ? (
                 <input
@@ -60,14 +68,18 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
           <div>
               <span className="icon" onClick={() => {
                 if (!edit && !todo.isDone) {
-                  setEdit(!edit);
+                  setEdit(!edit)
                 }
                 }}><AiFillEdit />
               </span>
               <span className="icon"><AiFillDelete onClick={ () => handleDelete(todo.id) } /></span>
               <span className="icon"><MdDone onClick={ () => handleDone(todo.id) } /></span>
           </div>
-    </form>
+      </form>
+        )
+      }
+        
+     </Draggable> 
   )
 }
 
