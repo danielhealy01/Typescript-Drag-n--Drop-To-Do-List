@@ -17,6 +17,7 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
                 handleAdd(e)
                 inputRef.current?.blur()
             }}
+            
         >
 
             <input
